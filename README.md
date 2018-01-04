@@ -1,3 +1,14 @@
-# My Awesome Book
+# Docker Handbook
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+References to used materials: 
+
+* Docker [documentation](https://docs.docker.com)
+
+* [Docker for DevOps: From Development to Production](https://www.gitbook.com/book/ondrej-kvasnovsky/docker-handbook/edit#) by Stone River eLearning
+
+
+
+
+
+
+
