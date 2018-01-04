@@ -92,6 +92,8 @@ mobydock:
     - '8000:8000'
 ```
 
+> volumes will bind our local code to docker, so we will be able to see our changes immediately in docker container
+
 After we have the docker compose file, we can start it all up.
 
 ```
@@ -115,14 +117,15 @@ mobydock_postgres_1   /docker-entrypoint.sh postgres   Up      0.0.0.0:5432->543
 mobydock_redis_1      /entrypoint.sh redis-server      Up      0.0.0.0:6379->6379/tcp
 ```
 
-We can try to connect to `mobydock_postgres_1` container play with postgres. 
+We can try to connect to `mobydock_postgres_1` container play with postgres.
 
 ```
 docker exec mobydock_postgres_1 createdb -U postgres mobydock
 docker exec mobydock_postgres_1 psql -U postgres -c "CREATE USER mobydock WITH PASSWORD 'yourpassword'; GRANT ALL PRIVILEGES ON DATABASE mobydock to mobydock;"
+docker exec mobydock_postgres_1 psql -U mobydock -c "CREATE TABLE Feedback (id serial, message text)"
 ```
 
-We can also connect to the running container and run bash. 
+We can also connect to the running container and run bash.
 
 ```
 docker exec -i -t mobydock_postgres_1 /bin/bash
