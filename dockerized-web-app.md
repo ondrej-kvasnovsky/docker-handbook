@@ -102,5 +102,37 @@ docker-compose up
 
 Other source code can be downloaded from [here](https://www.dropbox.com/sh/5l400rrycpe81m5/AACRcys5LusPrgYJchdvKWWla?dl=0).
 
-When `docker-compose up` is done, we can access the up in browser on this URL: [http://localhost:8000](http://localhost:8000) 
+### Connect to containers
+
+We can see what containers were started. We can run `docker ps` or `docker-compose` ps in the project directory.
+
+```
+➜  mobydock docker-compose ps
+       Name                      Command               State           Ports
+-------------------------------------------------------------------------------------
+mobydock_mobydock_1   gunicorn -b 0.0.0.0:8000 - ...   Up      0.0.0.0:8000->8000/tcp
+mobydock_postgres_1   /docker-entrypoint.sh postgres   Up      0.0.0.0:5432->5432/tcp
+mobydock_redis_1      /entrypoint.sh redis-server      Up      0.0.0.0:6379->6379/tcp
+```
+
+We can try to connect to `mobydock_postgres_1` container play with postgres. 
+
+```
+docker exec mobydock_postgres_1 createdb -U postgres mobydock
+docker exec mobydock_postgres_1 psql -U postgres -c "CREATE USER mobydock WITH PASSWORD 'yourpassword'; GRANT ALL PRIVILEGES ON DATABASE mobydock to mobydock;"
+```
+
+We can also connect to the running container and run bash. 
+
+```
+docker exec -i -t mobydock_postgres_1 /bin/bash
+```
+
+### Access the application
+
+When `docker-compose up` is done, we can access the up in browser on this URL: [http://localhost:8000](http://localhost:8000)
+
+### Running containers
+
+We can stop all the containers by executing `docker-compose stop`.
 
