@@ -104,6 +104,8 @@ After we have the docker compose file, we can start it all up.
 docker-compose up
 ```
 
+Sometimes, we kill docker-compose with Ctrl+C it hands and we need to kill the instances: `docker-compose stop`
+
 ### Other source code files
 
 Other source code can be downloaded from [here](https://www.dropbox.com/sh/5l400rrycpe81m5/AACRcys5LusPrgYJchdvKWWla?dl=0).
@@ -135,7 +137,7 @@ We can also connect to the running container and run bash.
 docker exec -i -t mobydock_postgres_1 /bin/bash
 ```
 
-Run a command as a specific user. 
+Run a command as a specific user.
 
 ```
 docker-compose run --user "$(id -u):$(id -g)" mobydock /bin/echo "Hi there"
