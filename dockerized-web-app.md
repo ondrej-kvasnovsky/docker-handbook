@@ -92,7 +92,7 @@ mobydock:
     - '8000:8000'
 ```
 
-> volumes will bind our local code to docker, so we will be able to see our changes immediately in docker container
+> volumes will bind our local code to docker, so we will be able to see our changes immediately in docker container, that is very useful for local development
 
 After we have the docker compose file, we can start it all up.
 
