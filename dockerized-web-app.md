@@ -60,6 +60,8 @@ For development, we can simplify development using `docker-compose`. It will pre
 
 We use three different images: postgres, redis and mobydock. Docker compose will make sure there is PostgreSQL and Redis databases. And it also maps our source code to docker so changes will be available immediately.
 
+> e`nvironment` variables are used by a docker container, for example, postgres container expects POSTGRES\_USER and POSTGRES\_PASSWORD
+
 ```
 postgres:
   image: postgres:9.4.5
@@ -92,7 +94,9 @@ mobydock:
     - '8000:8000'
 ```
 
-> volumes will bind our local code to docker, so we will be able to see our changes immediately in docker container, that is very useful for local development
+> `volumes` will bind our local code to docker, so we will be able to see our changes immediately in docker container, that is very useful for local development
+>
+> `links` make dependencies inside docker compose files
 
 After we have the docker compose file, we can start it all up.
 
