@@ -135,6 +135,12 @@ We can also connect to the running container and run bash.
 docker exec -i -t mobydock_postgres_1 /bin/bash
 ```
 
+Run a command as a specific user. 
+
+```
+docker-compose run --user "$(id -u):$(id -g)" mobydock /bin/echo "Hi there"
+```
+
 ### Access the application
 
 When `docker-compose up` is done, we can access the up in browser on this URL: [http://localhost:8000](http://localhost:8000)
