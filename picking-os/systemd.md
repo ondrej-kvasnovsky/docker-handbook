@@ -1,4 +1,4 @@
-# systemd
+# Running Services
 
 ### Why systemd?
 
@@ -10,7 +10,7 @@
 
 #### Unit files
 
-List unit files created by Debian. 
+List unit files created by Debian.
 
 ```
 sudo systemctl list-unit-files
@@ -38,7 +38,7 @@ WantedBy=basic.target
 
 #### Postgres service
 
-Service sections can have multiple phases. `%p` will resolve to name of the service, which is name of the file, `postgres.service`. It says the service needs to be started after docker service is up. Also, it says the service needs to be always restarted, which will make the service running all the time. 
+Service sections can have multiple phases. `%p` will resolve to name of the service, which is name of the file, `postgres.service`. It says the service needs to be started after docker service is up. Also, it says the service needs to be always restarted, which will make the service running all the time.
 
 ```
 [Unit]
@@ -95,13 +95,23 @@ $ sudo vi /etc/systemd/system/redis.service
 $ sudo chown ondrej:ondrej /etc/systemd/system/redis.service
 ```
 
-Now, lets enable the services. Enable will make sure it is loaded at the system boot. Start will start it immediately. 
+Now, lets enable the services. Enable will make sure it is loaded at the system boot. Start will start it immediately.
 
 ```
 $ sudo systemctl enable postgres.service
 $ sudo systemctl start postgres.service
 $ sudo systemctl enable redis.service
 $ sudo systemctl start redis.service
+```
+
+Now we can try to play with the services. Lets try to restart redis service and see, that redis the docker container was just started. 
+
+```
+$ sudo systemctl restart redis.service
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+95e593bbb735        redis:2.8.22        "/entrypoint.sh redi…"   1 second ago        Up 1 second         0.0.0.0:6379->6379/tcp   redis
+0d859124baf9        postgres:9.4.5      "/docker-entrypoint.…"   6 minutes ago       Up 6 minutes        0.0.0.0:5432->5432/tcp   postgres
 ```
 
 
