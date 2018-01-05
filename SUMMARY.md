@@ -12,4 +12,5 @@
   * [Build Docker Image](picking-os/build-docker-image.md)
   * [Configure Firewall](picking-os/configure-firewall.md)
   * [Running Services](picking-os/systemd.md)
+  * [Nginx](picking-os/nginx.md)
 
