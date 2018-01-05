@@ -207,5 +207,20 @@ writing new private key to 'certs/productionexample.key'
 -----
 ```
 
+[Diffie Hellman](https://en.wikipedia.org/wiki/Diffie–Hellman_key_exchange) key.
+
+```
+$ openssl dhparam -out certs/dhparam.pem 2048
+$ cat certs/dhparam.pem
+-----BEGIN DH PARAMETERS-----
+MIIBCAKCAQEAqTwG+67Ja/d2Bv2T4YQa9N+3Dx84A/geGF4t2IYIH2spAbqVf5I/
+XMZXBCOfxbJmjGOVVLYAkL9hQ6cssFUQWupuSOtDcLuMA9sx1bEn0Sa+HpkuLnzY
+c1OxL0nJjX8tPqUM/djJCSr9KqUsRdDVWu5rcr1IFxmvlp9I1YWhqFmaLAyvB4QB
+S/skk8fXgjTkoRuRic8WCIg6qlakWt/DVvm/Nja2PZnl3YKJROUch4e3Tdj1UJm+
+oV06Na3E8092NMrqbn8bUVsI0TMzTRKOQVM7JbE6WD7OMQ2c2t8bbOZT4M9AZMbA
+F60DS/3Yp+mmTXlfCNohg4olmr7OebnLGwIBAg==
+-----END DH PARAMETERS-----
+```
+
 
 

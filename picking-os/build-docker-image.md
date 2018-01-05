@@ -6,6 +6,8 @@ We are going to make git repository on our local staging server and we will auto
 
 When developer pushed code, the hook will checkout the code. Then it will build and tags docker image. When that is done, it restarts the servers.
 
+> We can have multiple git repositories on one server, that can become handy when we want to have a server with multiple services running
+
 Lets create a git repository on the staging server. And add a hook that will rebuild the docker container.
 
 ```
