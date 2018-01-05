@@ -5,4 +5,8 @@
 * [Basic Commands](basic-commands.md)
 * [Registry](registry.md)
 * [Dockerized Web App](dockerized-web-app.md)
+* [Configure Host OS](picking-os.md)
+  * [Configure Debian](picking-os/configure-debian.md)
+  * [Configure SSH](picking-os/configure-ssh.md)
+  * [Configure Docker](picking-os/configure-docker.md)
 
