@@ -1,8 +1,8 @@
 ### Debian
 
-Lets configure Debian 9 OS to run our Docker containers and we will use it as staging server.
+Lets configure Debian 9 OS to run our Docker containers. We are going to use it as our staging server.
 
-First [download](https://www.debian.org/distrib/netinst) Debian distribution. Then install that into your virtual box. Just ssh and headless mode will be fine.
+First [download](https://www.debian.org/distrib/netinst) Debian distribution. Then install that into your virtual box. Just ssh and headless mode will be fine. Create at least 4GB disc.
 
 Then we can do basic configuration.
 
@@ -16,7 +16,7 @@ $ sudo vi /etc/sudoers
 And change this line to, that will stop requiring password for users who are in sudo group.
 
 ```
-%sudo     ALL=(ALL:ALL) NOPASWD:ALL
+%sudo     ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
 Then logout from root and your session and login again. We should see the difference when we run.

@@ -66,5 +66,5 @@ Add remote for staging into git.
 git remote add staging ssh://ondrej@192.168.1.199:/var/git/mobydock.git
 ```
 
-
+If you need to know more, here are all the [needed files](https://www.dropbox.com/sh/5l400rrycpe81m5/AACRcys5LusPrgYJchdvKWWla?dl=0).
 

@@ -16,7 +16,7 @@ Connect to the Debian server and copy the public key on the server as authorized
 
 ```
 $ ssh ondrej@192.168.1.199 mkdir .ssh
-$ cat id_rsa.pub | ssh ondrej@192.168.1.199 'cat >> .ssh/authorized_keys'
+$ cat ~/.ssh/id_rsa.pub | ssh ondrej@192.168.1.199 'cat >> .ssh/authorized_keys'
 $ ssh ondrej@192.168.1.199 'chmod 700 .ssh; chmod 640 .ssh/authorized_keys'
 ```
 
