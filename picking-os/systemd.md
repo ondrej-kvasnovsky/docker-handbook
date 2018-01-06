@@ -61,6 +61,32 @@ ExecStop=/usr/bin/docker stop %p
 WantedBy=multi-user.target
 ```
 
+#### Mobydock service \(the example service\)
+
+Here is the file that will make sure our example service is running.
+
+```
+[Unit]
+Description=Run %p
+Requires=docker.service postgres.service redis.service
+After=docker.service postgres.service redis.service
+
+[Service]
+Restart=always
+User=ondrej
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm -f %p
+ExecStart=/usr/bin/docker run -t --rm --name %p \
+  --link redis:redis --link postgres:postgres \
+  -v /home/ondrej/instance:/mobydock/instance \
+  -p 8000:8000 %p
+ExecStartPost=-/usr/bin/docker stop nginx
+ExecStop=/usr/bin/docker stop %p
+
+[Install]
+WantedBy=multi-user.target nginx.service
+```
+
 #### Redis service
 
 Here is the Redis service, `redis.service`.
@@ -95,6 +121,8 @@ $ sudo vi /etc/systemd/system/postgres.service
 $ sudo chown ondrej:ondrej /etc/systemd/system/postgres.service
 $ sudo vi /etc/systemd/system/redis.service
 $ sudo chown ondrej:ondrej /etc/systemd/system/redis.service
+$ sudo vi /etc/systemd/system/mobydock.service
+$ sudo chown ondrej:ondrej /etc/systemd/system/mobydock.service
 ```
 
 Now, lets enable the services. Enable will make sure it is loaded at the system boot. Start will start it immediately.
@@ -104,6 +132,8 @@ $ sudo systemctl enable postgres.service
 $ sudo systemctl start postgres.service
 $ sudo systemctl enable redis.service
 $ sudo systemctl start redis.service
+$ sudo systemctl enable mobydock.service
+$ sudo systemctl start mobydock.service
 ```
 
 Now we can try to play with the services. Lets try to restart redis service and see, that redis the docker container was just started.
@@ -156,7 +186,7 @@ We can find out the status of the service. This is useful when debugging the ser
 
 ### Reloading services
 
-When we update the service file, we want to reload the changes. 
+When we update the service file, we want to reload the changes.
 
 ```
 $ sudo systemctl daemon-reload
