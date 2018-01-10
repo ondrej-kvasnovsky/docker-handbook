@@ -24,7 +24,7 @@ FROM openjdk:8u151-jre-slim
 
 WORKDIR /app
 
-COPY build/libs/demo.jar .
+COPY build/libs/* .
 
 EXPOSE 8080
 
