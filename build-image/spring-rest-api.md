@@ -64,7 +64,7 @@ If the docker container is up, we can try to talk to the server which is started
 Hello
 ```
 
-Lets connect to the docker container and explore what is there. 
+Lets connect to the docker container and explore what is there.
 
 ```
 ➜ docker exec -i -t 0c61ae468954 /bin/bash
@@ -82,7 +82,7 @@ The consequent question is how to stop the docker container we just started. We 
 ➜ docker stop e13
 ```
 
-### Find jar based on a pattern
+### Find application jar based on a pattern
 
 When we include version number in a `.jar` file, we need to be able to find it dynamically in docker and pass it to `java -jar` as a parameter.
 
