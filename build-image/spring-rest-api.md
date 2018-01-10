@@ -31,7 +31,7 @@ EXPOSE 8080
 CMD ["java", "-jar", "demo.jar"]
 ```
 
-Now we can try to build. 
+Now we can try to build.
 
 ```
 ➜ hello-world docker build -t spring/rest-api .
@@ -42,14 +42,14 @@ Successfully built 66d599bf7861
 Successfully tagged spring/rest-api:latest
 ```
 
-Once build is done, we can star the docker. Study the documentation to learn how [docker run](https://docs.docker.com/engine/reference/run/) works with all the options. Here we use `-d` flag to run container in detached mode. `-p` flag says port mapping, from docker container to our system. 
+Once build is done, we can star the docker. Study the documentation to learn how [docker run](https://docs.docker.com/engine/reference/run/) works with all the options. Here we use `-d` flag to run container in detached mode. `-p` flag says port mapping, from docker container to our system.
 
 ```
 ➜ docker run -d -p 8080:8080 spring/rest-api
 e13dfb803fb264fe61767f0378cda2029debad8488a597a22a9e6100fbcebd5e
 ```
 
-First, check if our docker container is running. 
+First, check if our docker container is running.
 
 ```
 ➜ docker ps
@@ -62,6 +62,12 @@ If the docker container is up, we can try to talk to the server which is started
 ```
 ➜ curl localhost:8080/hello
 Hello
+```
+
+The consequent question is how to stop the docker container we just started. We need do it by using container id, or at least the begging of the id string. `e13` should be enough to identify the docker container and stop it.
+
+```
+docker stop e13
 ```
 
 
