@@ -1,4 +1,4 @@
-## Java Server
+## Java Server Application
 
 We are going to use an application that was created in [this article](https://www.gitbook.com/book/ondrej-kvasnovsky/spring-handbook/edit#/edit/master/chapter1/rest-api.md?_k=dalfz5). It is using Spring 5 and it implements a simple REST API controller `GET /hello` that returns `Hello` string as a reponse. Lets get [this jar file](https://www.dropbox.com/s/uk5qswtmnljry8y/demo-0.0.1-SNAPSHOT.jar?dl=0) in case we don't want to build the application now.
 
@@ -69,6 +69,19 @@ The consequent question is how to stop the docker container we just started. We 
 ```
 docker stop e13
 ```
+
+### Find jar based on a pattern
+
+When we include version number in a `.jar` file, we need to be able to find it dynamically in docker and pass it to `java -jar` as a parameter. 
+
+We can create this script, which we copy into docker image. It will find a `jar` file based on a pattern we define and then uses this file as parameter for `java` program to start the server.
+
+    #!/bin/bash
+    echo "Starting the application..."
+    find build/libs -name "*.jar" > jar_file
+    jarFile="`cat jar_file`"
+    echo $jarFile
+    java -jar $jarFile
 
 
 

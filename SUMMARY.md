@@ -4,7 +4,7 @@
 * [Installation](chapter1.md)
 * [Basic Commands](basic-commands.md)
 * [Build Image](build-image.md)
-  * [Java Server](build-image/spring-rest-api.md)
+  * [Java Server Application](build-image/spring-rest-api.md)
 * [Registry](registry.md)
 * [Dockerized Web App](dockerized-web-app.md)
 * [Configure Host OS](picking-os.md)
