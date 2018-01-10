@@ -64,16 +64,22 @@ If the docker container is up, we can try to talk to the server which is started
 Hello
 ```
 
-To explore what exactly has happened, we can run the container in interactive mode. 
+Lets connect to the docker container and explore what is there. 
 
 ```
-run -i -t spring/rest-app /bin/bash
+➜ docker exec -i -t 0c61ae468954 /bin/bash
+```
+
+To explore what exactly has happened, we can run the container in interactive mode.
+
+```
+➜ run -i -t spring/rest-app /bin/bash
 ```
 
 The consequent question is how to stop the docker container we just started. We need do it by using container id, or at least the begging of the id string. `e13` should be enough to identify the docker container and stop it.
 
 ```
-docker stop e13
+➜ docker stop e13
 ```
 
 ### Find jar based on a pattern
