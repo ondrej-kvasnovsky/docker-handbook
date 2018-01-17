@@ -6,6 +6,7 @@
 * [Build Image](build-image.md)
   * [Java Server Application](build-image/spring-rest-api.md)
 * [Registry](registry.md)
+* [Docker Machine](docker-machine.md)
 * [Dockerized Web App](dockerized-web-app.md)
 * [Configure Host OS](picking-os.md)
   * [Configure Debian](picking-os/configure-debian.md)
