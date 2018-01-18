@@ -16,4 +16,5 @@
   * [Configure Firewall](picking-os/configure-firewall.md)
   * [Running Services](picking-os/systemd.md)
   * [Nginx](picking-os/nginx.md)
+* [Debugging](debugging.md)
 
