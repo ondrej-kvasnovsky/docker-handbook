@@ -26,5 +26,11 @@ $ docker inspect -f "{{.Name}} {{.Config.Cmd}}" $(docker ps -a -q)
 /logs [/bin/sh -c exec fluentd -c /fluentd/etc/${FLUENTD_CONF} -p /fluentd/plugins $FLUENTD_OPT]
 ```
 
+Or more standard command. 
+
+```
+$ docker ps -a --no-trunc
+```
+
 
 
