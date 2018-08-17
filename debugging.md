@@ -17,5 +17,14 @@ $ docker logs myservice
 ...logs...
 ```
 
+### See how docker instances were started
+
+```
+$ docker inspect -f "{{.Name}} {{.Config.Cmd}}" $(docker ps -a -q)
+/my-service [/bin/sh -c pm2-docker -i max app.js]
+/logrotate [cron]
+/logs [/bin/sh -c exec fluentd -c /fluentd/etc/${FLUENTD_CONF} -p /fluentd/plugins $FLUENTD_OPT]
+```
+
 
 
